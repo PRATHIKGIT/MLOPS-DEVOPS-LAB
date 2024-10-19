@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="brand.png" alt="Ramaiah Institute of Technology" class="college-logo"> <!-- Replace with your logo image -->
+        <h1>College Event Registration</h1>
+        <form id="registrationForm" onsubmit="return showSuccessMessage(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="usn">USN:</label>
+            <input type="text" id="usn" name="usn" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10 digits">
+
+            <label for="dept">Department:</label>
+            <input type="text" id="dept" name="dept" required>
+
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" required>
+
+            <label for="event">Interested Event:</label>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>Select an event</option>
+                <option value="hackathon">Hackathon</option>
+                <option value="datathon">Datathon</option>
+                <option value="coding">Coding Event</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <div id="successMessage" class="success-message" style="display: none;">
+            Registration successful! Thank you for registering.
+        </div>
+    </div>
+
+    <script>
+        function showSuccessMessage(event) {
+            event.preventDefault();
+            document.getElementById('registrationForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+            return false;
+        }
+    </script>
+</body>
+</html>
